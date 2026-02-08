@@ -182,7 +182,7 @@ void Velvet::HashObjects(
 
 	{
 		ScopedTimerGPU timer("Solver_HashBuildCell");
-		cudaMemsetAsync(cellStart, 0xffffffff, sizeof(uint) * (h_params.tableSize + 1));
+		cudaMemsetAsync(cellStart, 0xffffffff, sizeof(uint) * (h_params.tableSize));
 		uint numBlocks, numThreads;
 		ComputeGridSize(h_params.numObjects, numBlocks, numThreads);
 		uint smemSize = sizeof(uint) * (numThreads + 1);
