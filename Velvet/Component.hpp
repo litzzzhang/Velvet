@@ -1,35 +1,33 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-
 #include "Transform.hpp"
+#include <iostream>
+#include <memory>
+#include <string>
 
 #define SET_COMPONENT_NAME name = __func__
 
-namespace Velvet
-{
-	using namespace std;
+namespace Velvet {
+using namespace std;
 
-	class Actor;
+class Actor;
 
-	class Component
-	{
-	public:
-		virtual void Start() {}
+class Component {
+public:
+  virtual void Start() {}
 
-		virtual void Update() { }
+  virtual void Update() {}
 
-		virtual void FixedUpdate() {}
+  virtual void FixedUpdate() {}
 
-		virtual void OnDestroy() {}
+  virtual void OnDestroy() {}
 
-		string name = "Component";
+  string name = "Component";
 
-		Actor* actor = nullptr;
+  Actor *actor = nullptr;
 
-		shared_ptr<Transform> transform();
+  shared_ptr<Transform> transform();
 
-		bool enabled = true;
-	};
-}
+  bool enabled = true;
+};
+} // namespace Velvet
